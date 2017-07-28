@@ -1,0 +1,148 @@
+.zUIpanelScrollBox,
+.zUIpanelScrollBar {
+  width: 10px;
+  top: 4px;
+  right: 2px;
+  border-radius: 5px;
+}
+.zUIpanelScrollBox {
+  background: black;
+  opacity: 0.1;
+  filter: alpha(opacity=10);
+}
+.zUIpanelScrollBar {
+  background: #fff;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+#header {
+  width: 1200px;
+  height: 50px;
+  margin: 20px auto;
+}
+#header ul {
+  font-size: 0;
+  position: relative;
+}
+#header ul li {
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  width: 260px;
+  height: 48px;
+  background: url(http://localhost:8080/image/bg-0.png) no-repeat center center;
+  font-size: 14px;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+}
+#header ul li:first-child {
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: url(http://localhost:8080/image/bg-1.png) no-repeat center center;
+}
+#header ul li:nth-child(2) {
+  top: 0;
+  left: 224px;
+  z-index: 4;
+}
+#header ul li:nth-child(3) {
+  top: 0;
+  left: 450px;
+  z-index: 3;
+}
+#header ul li:last-child {
+  background: url(http://localhost:8080/image/bg-2.png) no-repeat center center;
+  top: 0;
+  left: 650px;
+  z-index: 2;
+}
+#content {
+  width: 1200px;
+  height: 200px;
+  margin: 20px auto;
+  line-height: 30px;
+}
+#content input {
+  width: 800px;
+  outline: none;
+  box-shadow: 1px 1px 1px #ccc;
+}
+#content span {
+  display: inline-block;
+  width: 80px;
+}
+#content .remake {
+  margin-top: 20px;
+}
+#content .third input {
+  margin-top: 20px;
+  width: 200px;
+  vertical-align: middle;
+}
+#content .third button {
+  margin-top: 22px;
+  vertical-align: middle;
+}
+#content .third .table-wrapper {
+  height: 180px;
+  width: 100%;
+}
+#content .third table {
+  width: 80%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+#content .third table thead {
+  background-color: #f5f5f6;
+}
+#content .third table th,
+#content .third table td {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+#content .fourth span {
+  display: inline-block;
+  width: 80px;
+  height: 26px;
+  margin-left: 420px;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  line-height: 26px;
+  font-size: 16px;
+}
+#content .fourth span:hover {
+  background-color: #286090;
+}
+#content .second,
+#content .third,
+#content .fourth {
+  display: none;
+}
+#btn {
+  width: 1200px;
+  height: 50px;
+  margin: auto;
+  font-size: 0;
+}
+#btn span {
+  display: inline-block;
+  width: 120px;
+  height: 36px;
+  cursor: pointer;
+}
+#btn .pre {
+  margin-left: 330px;
+  background: url(http://localhost:8080/image/pre.png) no-repeat center center;
+  visibility: hidden;
+}
+#btn .next {
+  margin-left: 30px;
+  background: url(http://localhost:8080/image/next.png) no-repeat center center;
+}
