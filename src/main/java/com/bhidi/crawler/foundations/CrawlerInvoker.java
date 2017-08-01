@@ -8,18 +8,19 @@ import us.codecraft.webmagic.Spider;
  */
 public class CrawlerInvoker {
     public void Invoke(){
-        if(Show.isBoo() == false){
 
-        }
         String fileStorePath = "download";
         String url = "http://www.creei.cn/";
         String urlPattern = "^((https|http|ftp|rtsp|mms)?:\\/\\/www.creei.cn[\\s\\S]*)";
         ImgProcessor imgspider=new ImgProcessor(url, urlPattern);
 
-        Spider.create(imgspider)
+        Spider spider =  Spider.create(imgspider)
                 .addUrl(url)
                 .addPipeline(new ImgPipeline(fileStorePath))
-                .thread(5)
-                .run();
+                .thread(5);
+        if(Show.isBoo() == false){
+            spider.stop();
+        }
+        spider.run();
     }
 }
