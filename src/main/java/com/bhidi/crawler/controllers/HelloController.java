@@ -1,6 +1,7 @@
 package com.bhidi.crawler.controllers;
 
 import com.alibaba.fastjson.JSON;
+import com.bhidi.crawler.beans.Show;
 import com.bhidi.crawler.foundations.CrawlerInvoker;
 import com.bhidi.crawler.foundations.ImgDownloader;
 import com.bhidi.crawler.utils.add;
@@ -39,7 +40,7 @@ public class HelloController {
     @RequestMapping(value = "/data", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"}
     )
     public String printData(ModelMap model)  {
-        List<String> list= ImgDownloader.list;
+        List<String> list= Show.getList();
        /* Map<Integer,String> map = new HashMap<Integer, String>();
 
         for(int i = 0; i < list.size(); i++){

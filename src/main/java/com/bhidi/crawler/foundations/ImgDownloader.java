@@ -1,5 +1,6 @@
 package com.bhidi.crawler.foundations;
 
+import com.bhidi.crawler.beans.Show;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
@@ -17,14 +18,7 @@ import java.util.List;
  * Created by zhy19712 on 20/07/2017.
  */
 public class ImgDownloader {
-    public static List<String> list;
-    public List getList(){
-        return list;
-    }
-    public void setList(List list){
-        this.list = list;
-    }
-
+    public static List list1 = new ArrayList();
     public void download(String url, String title, String path) throws IOException {
         String[] filename;
 
@@ -33,7 +27,7 @@ public class ImgDownloader {
         HttpResponse response = httpClient.execute(getMethod);
         //logger.info(response.getStatusLine());
         int statusCode = response.getStatusLine().getStatusCode();
-        List<String> list1 = new ArrayList<String>();
+
         if (statusCode == HttpStatus.SC_OK) {
 
             filename = url.split("/"); // 取图片链接的最后一段为文件名
@@ -63,6 +57,7 @@ public class ImgDownloader {
 
 
             list1.add(title + nameSuffix );
+            System.out.println(list1.size());
 
             System.out.println("图片-" + title + nameSuffix + "-下载完成！");
 
@@ -70,7 +65,8 @@ public class ImgDownloader {
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
         }
-        setList(list1);
+        Show.setList(list1);
+
         response = null;
         getMethod.releaseConnection();
     }
