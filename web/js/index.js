@@ -82,7 +82,32 @@ $(function() {
             data: num,
             dataType: "json",
             success: function (data) {
-                console.log(data);
+                if (data){
+                    $("#container").empty();
+                    var length = data.length;
+
+                    $.each(data,function (i,n) {
+                        if(i<10){
+                            if(i===9){
+                                var str = "<span>" + n +"</span>"
+                                $("#container").append(str);
+                            }else if((i+1) === length) {
+                                var str = "<span>" + n +",共"+ length +"张图片下载完成</span>"
+                                $("#container").append(str);
+                            }else {
+                                var str = "<span>" + n +",</span>"
+                                $("#container").append(str);
+                            }
+                        }else {
+                            if((i+1) === length){
+                                var str = "<span>等" + length + "张图片下载完成</span>"
+                                $("#container").append(str);
+                            }
+                        }
+                    })
+
+                }
+
             }
         })
 	};
