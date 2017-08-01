@@ -33,6 +33,7 @@ public class ImgDownloader {
         HttpResponse response = httpClient.execute(getMethod);
         //logger.info(response.getStatusLine());
         int statusCode = response.getStatusLine().getStatusCode();
+        List<String> list1 = new ArrayList<String>();
         if (statusCode == HttpStatus.SC_OK) {
 
             filename = url.split("/"); // 取图片链接的最后一段为文件名
@@ -59,16 +60,17 @@ public class ImgDownloader {
 
             storeFile.renameTo(new File(path + title + nameSuffix));
             b = null;
-            List<String> list1 = new ArrayList<String>();
 
-            list1.add("图片-" + title + nameSuffix );
-            setList(list1);
+
+            list1.add(title + nameSuffix );
+
             System.out.println("图片-" + title + nameSuffix + "-下载完成！");
 
         } else {
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
         }
+        setList(list1);
         response = null;
         getMethod.releaseConnection();
     }

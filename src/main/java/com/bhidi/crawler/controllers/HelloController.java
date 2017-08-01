@@ -36,7 +36,8 @@ public class HelloController {
         return "hello";
     }
     @ResponseBody
-    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    @RequestMapping(value = "/data", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"}
+    )
     public String printData(ModelMap model)  {
         List<String> list= ImgDownloader.list;
        /* Map<Integer,String> map = new HashMap<Integer, String>();
