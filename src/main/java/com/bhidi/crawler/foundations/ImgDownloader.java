@@ -65,7 +65,15 @@ public class ImgDownloader {
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
         }
-        Show.setList(list1);
+        List<String> list2 = new ArrayList<String>();
+        list2.add((String)list1.get(list1.size()-5));
+        list2.add((String)list1.get(list1.size()-4));
+        list2.add((String)list1.get(list1.size()-3));
+        list2.add((String)list1.get(list1.size()-2));
+        list2.add((String)list1.get(list1.size()-1));
+
+        Show.setList(list2);
+        Show.setNum(list1.size());
 
         response = null;
         getMethod.releaseConnection();

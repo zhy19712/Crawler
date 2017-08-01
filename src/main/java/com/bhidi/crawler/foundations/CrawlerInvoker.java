@@ -1,5 +1,6 @@
 package com.bhidi.crawler.foundations;
 
+import com.bhidi.crawler.beans.Show;
 import us.codecraft.webmagic.Spider;
 
 /**
@@ -7,6 +8,9 @@ import us.codecraft.webmagic.Spider;
  */
 public class CrawlerInvoker {
     public void Invoke(){
+        if(Show.isBoo() == false){
+
+        }
         String fileStorePath = "download";
         String url = "http://www.creei.cn/";
         String urlPattern = "^((https|http|ftp|rtsp|mms)?:\\/\\/www.creei.cn[\\s\\S]*)";
@@ -18,5 +22,4 @@ public class CrawlerInvoker {
                 .thread(5)
                 .run();
     }
-
 }

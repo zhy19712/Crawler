@@ -9,8 +9,27 @@ import java.util.List;
 @Repository
 public class Show {
     private static List<String> list;
+    private static int num;
+    private static boolean boo;
 
     public Show(){}
+
+
+    public static boolean isBoo() {
+        return boo;
+    }
+
+    public static void setBoo(boolean boo) {
+        Show.boo = boo;
+    }
+
+    public static int getNum() {
+        return num;
+    }
+
+    public static void setNum(int num) {
+        Show.num = num;
+    }
 
     public static List<String> getList() {
         return list;

@@ -24,7 +24,9 @@ import java.util.Map;
 
 public class HelloController {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+
+    @ResponseBody
+    @RequestMapping(value = "/hello", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String printHello(ModelMap model)  {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
@@ -32,21 +34,27 @@ public class HelloController {
         CrawlerInvoker ccc = new CrawlerInvoker();
         ccc.Invoke();
         model.addAttribute("return","nihao");
-        System.out.println(aaa.plus());
-
-        return "hello";
+        Map<String,String> map = new HashMap<String, String>();
+        map.put("str","end");
+        String json = JSON.toJSONString(map);
+        return json;
     }
     @ResponseBody
-    @RequestMapping(value = "/data", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"}
-    )
+    @RequestMapping(value = "/data", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String printData(ModelMap model)  {
-        List<String> list= Show.getList();
-       /* Map<Integer,String> map = new HashMap<Integer, String>();
 
-        for(int i = 0; i < list.size(); i++){
-            map.put(i, list.get(i));
-        }*/
+        List<String> list = Show.getList();
+        int num = Show.getNum();
+        String numStr = Integer.toString(num);
+
         String jsonString = JSON.toJSONString(list);
+
+        Map<String,String> map = new HashMap<String, String>();
+
+        map.put("str",jsonString);
+        map.put("number",numStr);
+
+        String json = JSON.toJSONString(map);
 
        /* char[] chars = new char[2];
         response.setCharacterEncoding("UTF-8");
@@ -61,7 +69,13 @@ public class HelloController {
             System.out.println("response报错！");
         }*/
 
-        return jsonString;
+        return json;
+    }
+
+    @RequestMapping(value = "/stop", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
+    public String stop(ModelMap model)  {
+        Show.setBoo(false);
+        return "json";
     }
 }
 
