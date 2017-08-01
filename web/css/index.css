@@ -103,11 +103,15 @@
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
+#content .fourth {
+  position: relative;
+}
 #content .fourth span {
-  display: inline-block;
+  position: absolute;
   width: 80px;
   height: 26px;
-  margin-left: 420px;
+  left: 420px;
+  top: 20px;
   background-color: #337ab7;
   border: 1px solid #2e6da4;
   cursor: pointer;
@@ -117,8 +121,26 @@
   line-height: 26px;
   font-size: 16px;
 }
-#content .fourth span:hover {
+#content .fourth span:nth-child(2) {
+  display: none;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+#content .fourth #start:hover {
   background-color: #286090;
+}
+#content .fourth #stop:hover {
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+#content .fourth i {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 435px;
+  top: 80px;
+  display: none;
+  background: url(http://localhost:8080/image/load.gif) no-repeat center center;
 }
 #content .second,
 #content .third,

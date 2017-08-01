@@ -9,8 +9,8 @@
         <module name="Crawler" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Crawler" target="1.6" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="Crawler" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

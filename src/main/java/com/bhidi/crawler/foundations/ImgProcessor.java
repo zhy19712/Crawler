@@ -24,7 +24,7 @@ public class ImgProcessor implements PageProcessor {
         List<String> requests = page.getHtml().links().regex(urlPattern).all();
         List<String> listBackSrc = page.getHtml().$("#mainContent_news .img_contaner>img","src").all();
         List<String> listBackTitle = page.getHtml().$("#mainContent_news .img_contaner>.img_title","text").all();
-        System.out.println(listBackSrc);
+       /* System.out.println(listBackSrc);*/
 
         page.putField("src",listBackSrc);
         page.putField("title",listBackTitle);

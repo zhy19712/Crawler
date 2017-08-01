@@ -71,6 +71,8 @@
     </div>
     <div class="fourth">
         <span id="start">开始采集</span>
+        <span id="stop">停止采集</span>
+        <i></i>
 
         <%--<form action="/Hello.do" method = get>
           账号：<input type="text" name="" id="s">
@@ -78,11 +80,13 @@
           <input type = submit name="submit">
         </form>>--%>
     </div>
+
 </div>
 <div id="btn">
     <span class="pre"></span>
     <span class="next"></span>
 </div>
+<div id="222"></div>
 </body>
 <script src="http://localhost:8080/js/jquery.min.js"></script>
 <script src="http://localhost:8080/js/zUI.js"></script>

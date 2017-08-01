@@ -10,11 +10,21 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhy19712 on 20/07/2017.
  */
 public class ImgDownloader {
+    public static List<String> list;
+    public List getList(){
+        return list;
+    }
+    public void setList(List list){
+        this.list = list;
+    }
+
     public void download(String url, String title, String path) throws IOException {
         String[] filename;
 
@@ -49,7 +59,12 @@ public class ImgDownloader {
 
             storeFile.renameTo(new File(path + title + nameSuffix));
             b = null;
+            List<String> list1 = new ArrayList<String>();
+
+            list1.add("图片-" + title + nameSuffix );
+            setList(list1);
             System.out.println("图片-" + title + nameSuffix + "-下载完成！");
+
         } else {
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
