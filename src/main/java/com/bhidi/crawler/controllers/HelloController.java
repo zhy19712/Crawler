@@ -18,6 +18,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,14 +27,9 @@ import java.util.Map;
  * Created by zhy19712 on 28/07/2017.
  */
 @Controller
-
 public class HelloController {
-    @Autowired
+    private static List<Object> list = new ArrayList<Object>();
     private CrawlerInvoker craw;
-
-    WebApplicationContext webApplicationContext = ContextLoader.getCurrentWebApplicationContext();
-    ServletContext servletContext = webApplicationContext.getServletContext();
-
 
     @ResponseBody
     @RequestMapping(value = "/hello", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
@@ -41,13 +37,13 @@ public class HelloController {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
         add aaa = new add(1,2);
-        /*CrawlerInvoker ccc = new CrawlerInvoker();
-        ccc.Invoke();*/
-        if(name != null){
-            craw.stop();
-        }else{
-            craw.Invoke();
-        }
+        Show.setNum(0);
+        ImgDownloader.list1 = new ArrayList();
+        CrawlerInvoker craw = new CrawlerInvoker();
+        list.add(craw);
+
+        CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
+        craw2.Invoke();
 
         model.addAttribute("return","nihao");
         Map<String,String> map = new HashMap<String, String>();
@@ -87,11 +83,13 @@ public class HelloController {
 
         return json;
     }
-
-   /* @RequestMapping(value = "/stop", method = RequestMethod.GET)
+    @ResponseBody
+    @RequestMapping(value = "/stop", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String stopThread(ModelMap model)  {
-        craw.stop();
+        CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
+        craw2.stop();
+
         return "json";
-    }*/
+    }
 }
 

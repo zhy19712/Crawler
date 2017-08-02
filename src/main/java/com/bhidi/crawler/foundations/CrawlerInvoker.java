@@ -7,7 +7,7 @@ import us.codecraft.webmagic.Spider;
 /**
  * Created by zhy19712 on 28/07/2017.
  */
-@Service
+
 public class CrawlerInvoker {
     String fileStorePath = "download";
     String url = "http://www.creei.cn/";
