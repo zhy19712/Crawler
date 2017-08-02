@@ -82,29 +82,17 @@ $(function() {
             data: num,
             dataType: "json",
             success: function (data) {
-                if (data){
+                if (data.number>0){
                     $("#container").empty();
-                    var length = data.length;
+                    console.log(typeof(data.str))
+                    var arr = data.str.split(",");
+                    $.each(arr,function (i,n) {
 
-                    $.each(data,function (i,n) {
-                        if(i<10){
-                            if(i===9){
-                                var str = "<span>" + n +"</span>"
-                                $("#container").append(str);
-                            }else if((i+1) === length) {
-                                var str = "<span>" + n +",共"+ length +"张图片下载完成</span>"
-                                $("#container").append(str);
-                            }else {
-                                var str = "<span>" + n +",</span>"
-                                $("#container").append(str);
-                            }
-                        }else {
-                            if((i+1) === length){
-                                var str = "<span>等" + length + "张图片下载完成</span>"
-                                $("#container").append(str);
-                            }
-                        }
-                    })
+                        var str = "<p>" + n + "</p>"
+                        $("#container").append(str);
+                    });
+                    var str1 = "<p>共有" + data.number + "个图片下载完成</p>"
+                    $("#container").append(str1);
 
                 }
 
@@ -131,7 +119,14 @@ $(function() {
     $("#stop").click(function(){
         $("#stop").css("display","none");
         $(".fourth>i").css("display","none");
-        clearInterval(set1)
+        clearInterval(set1);
+        $.ajax({
+            url: "/stop",
+            type: "get",
+            success: function () {
+                console.log("123");
+            }
+        })
     });
 })
 

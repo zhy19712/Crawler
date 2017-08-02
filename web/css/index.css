@@ -152,10 +152,9 @@
   border: 1px solid #626262;
   box-shadow: 1px 1px 1px #000;
 }
-#content .fourth #container span{
-  display: inline;
-  width: auto;
-  margin-left: 15px;
+#content .fourth #container p{
+  font-size: 14px;
+  line-height: 20px;
 }
 #content .second,
 #content .third,

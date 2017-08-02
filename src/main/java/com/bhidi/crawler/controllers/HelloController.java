@@ -72,8 +72,8 @@ public class HelloController {
         return json;
     }
 
-    @RequestMapping(value = "/stop", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public String stop(ModelMap model)  {
+    @RequestMapping(value = "/stop", method = RequestMethod.GET)
+    public String stopThread(ModelMap model)  {
         Show.setBoo(false);
         return "json";
     }
