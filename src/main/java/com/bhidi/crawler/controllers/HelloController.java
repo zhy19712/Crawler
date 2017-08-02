@@ -5,13 +5,18 @@ import com.bhidi.crawler.beans.Show;
 import com.bhidi.crawler.foundations.CrawlerInvoker;
 import com.bhidi.crawler.foundations.ImgDownloader;
 import com.bhidi.crawler.utils.add;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -23,16 +28,27 @@ import java.util.Map;
 @Controller
 
 public class HelloController {
+    @Autowired
+    private CrawlerInvoker craw;
+
+    WebApplicationContext webApplicationContext = ContextLoader.getCurrentWebApplicationContext();
+    ServletContext servletContext = webApplicationContext.getServletContext();
 
 
     @ResponseBody
     @RequestMapping(value = "/hello", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public String printHello(ModelMap model)  {
+    public String printHello(@RequestParam(value = "name",required = false) String name, ModelMap model)  {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
         add aaa = new add(1,2);
-        CrawlerInvoker ccc = new CrawlerInvoker();
-        ccc.Invoke();
+        /*CrawlerInvoker ccc = new CrawlerInvoker();
+        ccc.Invoke();*/
+        if(name != null){
+            craw.stop();
+        }else{
+            craw.Invoke();
+        }
+
         model.addAttribute("return","nihao");
         Map<String,String> map = new HashMap<String, String>();
         map.put("str","end");
@@ -72,10 +88,10 @@ public class HelloController {
         return json;
     }
 
-    @RequestMapping(value = "/stop", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/stop", method = RequestMethod.GET)
     public String stopThread(ModelMap model)  {
-        Show.setBoo(false);
+        craw.stop();
         return "json";
-    }
+    }*/
 }
 

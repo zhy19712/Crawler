@@ -121,7 +121,7 @@ $(function() {
         $(".fourth>i").css("display","none");
         clearInterval(set1);
         $.ajax({
-            url: "/stop",
+            url: "/hello?name=nihao",
             type: "get",
             success: function () {
                 console.log("123");
