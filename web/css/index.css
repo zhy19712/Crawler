@@ -23,6 +23,7 @@
 #header ul {
   font-size: 0;
   position: relative;
+  margin-left: 236px;
 }
 #header ul li {
   position: absolute;
@@ -47,15 +48,10 @@
   left: 224px;
   z-index: 4;
 }
-#header ul li:nth-child(3) {
-  top: 0;
-  left: 450px;
-  z-index: 3;
-}
 #header ul li:last-child {
   background: url(http://localhost:8080/image/bg-2.png) no-repeat center center;
   top: 0;
-  left: 650px;
+  left: 430px;
   z-index: 2;
 }
 #content {
@@ -64,8 +60,11 @@
   margin: 20px auto;
   line-height: 30px;
 }
+#content>div{
+  margin-left: 150px;
+}
 #content input {
-  width: 800px;
+  width: 692px;
   outline: none;
   box-shadow: 1px 1px 1px #ccc;
 }
@@ -76,38 +75,11 @@
 #content .remake {
   margin-top: 20px;
 }
-#content .third input {
-  margin-top: 20px;
-  width: 200px;
-  vertical-align: middle;
-}
-#content .third button {
-  margin-top: 22px;
-  vertical-align: middle;
-}
-#content .third .table-wrapper {
-  height: 180px;
-  width: 100%;
-}
-#content .third table {
-  width: 80%;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-}
-#content .third table thead {
-  background-color: #f5f5f6;
-}
-#content .third table th,
-#content .third table td {
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-}
-#content .fourth {
+#content .third {
   position: relative;
 }
 
-#content .fourth #start, #content .fourth #stop,#content .fourth #end{
+#content .third #start, #content .third #stop,#content .third #end{
   position: absolute;
   width: 80px;
   height: 26px;
@@ -122,25 +94,25 @@
   line-height: 26px;
   font-size: 16px;
 }
-#content .fourth #stop {
+#content .third #stop {
   display: none;
   background-color: #d9534f;
   border-color: #d43f3a;
 
 }
-#content .fourth #end{
+#content .third #end{
   display: none;
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
-#content .fourth #start:hover {
+#content .third #start:hover {
   background-color: #286090;
 }
-#content .fourth #stop:hover {
+#content .third #stop:hover {
   background-color: #c9302c;
   border-color: #ac2925;
 }
-#content .fourth i {
+#content .third i {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -149,7 +121,7 @@
   display: none;
   background: url(http://localhost:8080/image/load.gif) no-repeat center center;
 }
-#content .fourth #container{
+#content .third #container{
   position: absolute;
   width: 820px;
   height: 120px;
@@ -159,14 +131,13 @@
   border: 1px solid #626262;
   box-shadow: 1px 1px 1px #000;
 }
-#content .fourth #container p{
+#content .third #container p{
   font-size: 14px;
   line-height: 20px;
   text-align: center;
 }
 #content .second,
-#content .third,
-#content .fourth {
+#content .third {
   display: none;
 }
 #btn {
@@ -182,7 +153,7 @@
   cursor: pointer;
 }
 #btn .pre {
-  margin-left: 330px;
+  margin-left: 440px;
   background: url(http://localhost:8080/image/pre.png) no-repeat center center;
   visibility: hidden;
 }
