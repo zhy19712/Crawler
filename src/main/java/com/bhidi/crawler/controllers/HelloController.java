@@ -17,6 +17,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +34,7 @@ public class HelloController {
 
     @ResponseBody
     @RequestMapping(value = "/start", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public String printHello(@RequestParam(value = "name",required = false) String name, ModelMap model)  {
+    public String printHello(@RequestParam(value = "name",required = false) String name, ModelMap model,HttpSession session)  {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
         add aaa = new add(1,2);
@@ -46,8 +47,12 @@ public class HelloController {
         craw2.Invoke();
 
         model.addAttribute("return","nihao");
+        String sign = "normal";
+        sign = (String)session.getAttribute("sign");
+
         Map<String,String> map = new HashMap<String, String>();
-        map.put("str","end");
+        map.put("sign",sign);
+
         String json = JSON.toJSONString(map);
         return json;
     }
@@ -85,8 +90,9 @@ public class HelloController {
     }
     @ResponseBody
     @RequestMapping(value = "/stop", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public String stopThread(ModelMap model)  {
+    public String stopThread(ModelMap model, HttpSession session)  {
         CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
+        session.setAttribute("sign","interrupt");
         craw2.stop();
 
         return "json";
