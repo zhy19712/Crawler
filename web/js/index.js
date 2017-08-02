@@ -82,6 +82,8 @@ $(function() {
             data: num,
             dataType: "json",
             success: function (data) {
+                alert(data.numChange);
+                console.log(data.numChange);
                 if (data.number>0){
                     $("#container").empty();
                     console.log(typeof(data.str))

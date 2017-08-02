@@ -19,10 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by zhy19712 on 28/07/2017.
@@ -30,6 +27,8 @@ import java.util.Map;
 @Controller
 public class HelloController {
     private static List<Object> list = new ArrayList<Object>();
+    private static List<Object> listNum = new ArrayList<Object>();
+
     private CrawlerInvoker craw;
 
     @ResponseBody
@@ -64,12 +63,26 @@ public class HelloController {
         int num = Show.getNum();
         String numStr = Integer.toString(num);
 
+
         String jsonString = JSON.toJSONString(list);
 
         Map<String,String> map = new HashMap<String, String>();
 
         map.put("str",jsonString);
         map.put("number",numStr);
+        map.put("numChange","false");
+        int i = 0;
+        try {
+            Thread.sleep(1000L);
+            i++;
+        } catch (InterruptedException inte) {
+        }
+        if( i%30 == 0 ){
+            listNum.add(num);
+        }
+        if( listNum.size() >= 2 && listNum.get(listNum.size()-1) == listNum.get(listNum.size()-2) ){
+            map.put("numChange","true");
+        }
 
         String json = JSON.toJSONString(map);
 
