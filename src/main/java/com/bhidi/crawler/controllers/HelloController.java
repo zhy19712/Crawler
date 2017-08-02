@@ -77,7 +77,7 @@ public class HelloController {
             i++;
         } catch (InterruptedException inte) {
         }
-        if( i%30 == 0 ){
+        if( i> 30 && i%30 == 0 ){
             listNum.add(num);
         }
         if( listNum.size() >= 2 && listNum.get(listNum.size()-1) == listNum.get(listNum.size()-2) ){
