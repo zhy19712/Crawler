@@ -104,10 +104,10 @@ $(function() {
         $("#stop").css("display","block");
         $(".fourth>i").css("display","block");
 		$.ajax({
-			url: "/hello",
+			url: "/start",
 			type:"get",
             success: function(data){
-				alert(data);
+				alert(data.str);
 				$("222").html(data);
             }
         });

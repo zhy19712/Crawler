@@ -32,7 +32,7 @@ public class HelloController {
     private CrawlerInvoker craw;
 
     @ResponseBody
-    @RequestMapping(value = "/hello", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/start", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String printHello(@RequestParam(value = "name",required = false) String name, ModelMap model)  {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
