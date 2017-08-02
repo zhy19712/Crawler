@@ -106,6 +106,7 @@
 #content .fourth {
   position: relative;
 }
+
 #content .fourth #start, #content .fourth #stop,#content .fourth #end{
   position: absolute;
   width: 80px;
@@ -188,4 +189,12 @@
 #btn .next {
   margin-left: 30px;
   background: url(http://localhost:8080/image/next.png) no-repeat center center;
+}
+#table_wrapper{
+  width: 1200px;
+  margin: 0 auto;
+}
+#table{
+  width: 1000px;
+
 }

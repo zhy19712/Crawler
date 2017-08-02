@@ -87,7 +87,9 @@
     <span class="pre"></span>
     <span class="next"></span>
 </div>
-<div id="222"></div>
+<div id="table_wrapper">
+    <div id="table"></div>
+</div>
 </body>
 <script src="http://localhost:8080/js/jquery.min.js"></script>
 <script src="http://localhost:8080/js/zUI.js"></script>
