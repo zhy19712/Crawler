@@ -107,8 +107,7 @@ $(function() {
 			url: "/start",
 			type:"get",
             success: function(data){
-
-				alert(data.sign);
+				alert(data.str);
 				$("222").html(data);
             }
         });
