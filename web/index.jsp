@@ -72,6 +72,7 @@
     <div class="fourth">
         <span id="start">开始采集</span>
         <span id="stop">停止采集</span>
+        <span id="end">完成采集</span>
         <i></i>
         <div id="container"></div>
         <%--<form action="/Hello.do" method = get>

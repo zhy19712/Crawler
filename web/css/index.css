@@ -106,7 +106,7 @@
 #content .fourth {
   position: relative;
 }
-#content .fourth #start, #content .fourth #stop{
+#content .fourth #start, #content .fourth #stop,#content .fourth #end{
   position: absolute;
   width: 80px;
   height: 26px;
@@ -125,6 +125,12 @@
   display: none;
   background-color: #d9534f;
   border-color: #d43f3a;
+
+}
+#content .fourth #end{
+  display: none;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
 }
 #content .fourth #start:hover {
   background-color: #286090;
@@ -155,6 +161,7 @@
 #content .fourth #container p{
   font-size: 14px;
   line-height: 20px;
+  text-align: center;
 }
 #content .second,
 #content .third,

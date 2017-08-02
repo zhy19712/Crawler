@@ -87,7 +87,11 @@ $(function() {
                     console.log(typeof(data.str))
                     var arr = data.str.split(",");
                     $.each(arr,function (i,n) {
-
+                        if(i===0){
+                            n = n.substr(1,n.length)
+                        }else if(i===4){
+                            n = n.substr(0,(n.length-1))
+                        }
                         var str = "<p>" + n + "</p>"
                         $("#container").append(str);
                     });
@@ -107,8 +111,10 @@ $(function() {
 			url: "/start",
 			type:"get",
             success: function(data){
-				alert(data.str);
-				$("222").html(data);
+				if(data.str=="end"){
+                    clearInterval(set1);
+                    $("#end").css("display","block");
+                }
             }
         });
 		set1 = setInterval(function () {
@@ -119,7 +125,6 @@ $(function() {
     $("#stop").click(function(){
         $("#stop").css("display","none");
         $(".fourth>i").css("display","none");
-        clearInterval(set1);
         $.ajax({
             url: "/stop",
             type: "get",
