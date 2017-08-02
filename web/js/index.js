@@ -87,7 +87,11 @@ $(function() {
                     console.log(typeof(data.str))
                     var arr = data.str.split(",");
                     $.each(arr,function (i,n) {
-
+                        if(i===0){
+                            n = n.substr(1,n.length);
+                        }else if(i===4){
+                            n = n.substr(0,(n.length - 1));
+                        }
                         var str = "<p>" + n + "</p>"
                         $("#container").append(str);
                     });
@@ -107,8 +111,10 @@ $(function() {
 			url: "/start",
 			type:"get",
             success: function(data){
-				alert(data.sign);
-				$("222").html(data);
+				if(data.sign=="normal"){
+                    clearInterval(set1);
+				    $("#end").css("display","block");
+                }
             }
         });
 		set1 = setInterval(function () {
@@ -117,9 +123,9 @@ $(function() {
         },3000);
     });
     $("#stop").click(function(){
+        clearInterval(set1);
         $("#stop").css("display","none");
         $(".fourth>i").css("display","none");
-        clearInterval(set1);
         $.ajax({
             url: "/stop",
             type: "get",
