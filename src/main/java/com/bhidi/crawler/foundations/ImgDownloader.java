@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class ImgDownloader {
     public static List list1 = new ArrayList();
+
     public void download(String url, String title, String path) throws IOException {
         String[] filename;
 
@@ -71,6 +72,7 @@ public class ImgDownloader {
         list2.add((String)list1.get(list1.size()-3));
         list2.add((String)list1.get(list1.size()-2));
         list2.add((String)list1.get(list1.size()-1));
+
 
         Show.setList(list2);
         Show.setNum(list1.size());

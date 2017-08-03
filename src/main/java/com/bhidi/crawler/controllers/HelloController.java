@@ -2,6 +2,7 @@ package com.bhidi.crawler.controllers;
 
 import com.alibaba.fastjson.JSON;
 import com.bhidi.crawler.beans.Show;
+import com.bhidi.crawler.beans.TimeThread;
 import com.bhidi.crawler.foundations.CrawlerInvoker;
 import com.bhidi.crawler.foundations.ImgDownloader;
 import com.bhidi.crawler.utils.add;
@@ -27,7 +28,9 @@ import java.util.*;
 @Controller
 public class HelloController {
     private static List<Object> list = new ArrayList<Object>();
-    private static List<Object> listNum = new ArrayList<Object>();
+    public static List<Integer> listNum = new ArrayList<Integer>();
+    private static int i =0;
+    public static Map<String,String> map = new HashMap<String, String>();
 
     private CrawlerInvoker craw;
 
@@ -42,6 +45,11 @@ public class HelloController {
         CrawlerInvoker craw = new CrawlerInvoker();
         list.add(craw);
 
+        //开启时间线程
+        TimeThread timeTh = new TimeThread();
+        Thread timeThread =  new Thread(timeTh);
+        timeThread.start();
+
         CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
         craw2.Invoke();
 
@@ -52,6 +60,8 @@ public class HelloController {
         Map<String,String> map = new HashMap<String, String>();
         map.put("sign",sign);
 
+
+
         String json = JSON.toJSONString(map);
         return json;
     }
@@ -59,30 +69,13 @@ public class HelloController {
     @RequestMapping(value = "/data", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String printData(ModelMap model)  {
 
-        List<String> list = Show.getList();
-        int num = Show.getNum();
-        String numStr = Integer.toString(num);
-
-
-        String jsonString = JSON.toJSONString(list);
-
-        Map<String,String> map = new HashMap<String, String>();
+        String numStr = Integer.toString(Show.getNum());
+        String jsonString = JSON.toJSONString(Show.getList());
 
         map.put("str",jsonString);
         map.put("number",numStr);
-        map.put("numChange","false");
-        int i = 0;
-        try {
-            Thread.sleep(1000L);
-            i++;
-        } catch (InterruptedException inte) {
-        }
-        if( i%30 == 0 ){
-            listNum.add(num);
-        }
-        if( listNum.size() >= 2 && listNum.get(listNum.size()-1) == listNum.get(listNum.size()-2) ){
-            map.put("numChange","true");
-        }
+
+
 
         String json = JSON.toJSONString(map);
 
