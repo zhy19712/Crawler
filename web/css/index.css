@@ -23,7 +23,7 @@
 #header ul {
   font-size: 0;
   position: relative;
-  margin-left: 236px;
+  margin-left: 270px;
 }
 #header ul li {
   position: absolute;
@@ -167,5 +167,5 @@
 }
 #table{
   width: 1000px;
-
+  margin-left: 100px;
 }
