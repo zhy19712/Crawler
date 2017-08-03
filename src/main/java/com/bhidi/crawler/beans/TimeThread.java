@@ -1,6 +1,7 @@
 package com.bhidi.crawler.beans;
 
 import com.bhidi.crawler.controllers.HelloController;
+import com.bhidi.crawler.foundations.ImgDownloader;
 
 /**
  * Created by admin on 2017/8/3.
@@ -28,6 +29,7 @@ public class TimeThread implements Runnable{
                 HelloController.listNum.add( Show.getNum());
                 if( HelloController.listNum.size() >= 2 && (int)HelloController.listNum.get(HelloController.listNum.size()-1) == (int)HelloController.listNum.get(HelloController.listNum.size()-2) ){
                     HelloController.map.put("numChange","true");
+                    ImgDownloader.list1 = null;
                     TimeThread.switchCode = false;
                 }
             }

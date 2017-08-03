@@ -45,7 +45,9 @@ public class HelloController {
         CrawlerInvoker craw = new CrawlerInvoker();
         list.add(craw);
 
+        ImgDownloader.bbb = true;
         //开启时间线程
+        TimeThread.switchCode = true;
         TimeThread timeTh = new TimeThread();
         Thread timeThread =  new Thread(timeTh);
         timeThread.start();
@@ -99,7 +101,12 @@ public class HelloController {
     public String stopThread(ModelMap model, HttpSession session)  {
         CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
         session.setAttribute("sign","interrupt");
+
         craw2.stop();
+        TimeThread.switchCode = false;
+        ImgDownloader.list1 = null;
+        ImgDownloader.bbb = false;
+
 
         return "json";
     }

@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class ImgDownloader {
     public static List list1 = new ArrayList();
+    public static boolean bbb = true;
 
     public void download(String url, String title, String path) throws IOException {
         String[] filename;
@@ -56,26 +57,30 @@ public class ImgDownloader {
             storeFile.renameTo(new File(path + title + nameSuffix));
             b = null;
 
-
-            list1.add(title + nameSuffix );
-            System.out.println(list1.size());
-
-            System.out.println("图片-" + title + nameSuffix + "-下载完成！");
+            if( bbb = true ){
+                list1.add(title + nameSuffix );
+                System.out.println(list1.size());
+                System.out.println("图片-" + title + nameSuffix + "-下载完成！");
+            }
 
         } else {
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
         }
-        List<String> list2 = new ArrayList<String>();
-        list2.add((String)list1.get(list1.size()-5));
-        list2.add((String)list1.get(list1.size()-4));
-        list2.add((String)list1.get(list1.size()-3));
-        list2.add((String)list1.get(list1.size()-2));
-        list2.add((String)list1.get(list1.size()-1));
+        if( bbb = true ){
+            List<String> list2 = new ArrayList<String>();
+            list2.add((String)list1.get(list1.size()-5));
+            list2.add((String)list1.get(list1.size()-4));
+            list2.add((String)list1.get(list1.size()-3));
+            list2.add((String)list1.get(list1.size()-2));
+            list2.add((String)list1.get(list1.size()-1));
+            Show.setList(list2);
+            Show.setNum(list1.size());
+        }
 
 
-        Show.setList(list2);
-        Show.setNum(list1.size());
+
+
 
         response = null;
         getMethod.releaseConnection();

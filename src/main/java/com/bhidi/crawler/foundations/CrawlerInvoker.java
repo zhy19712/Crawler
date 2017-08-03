@@ -14,17 +14,21 @@ public class CrawlerInvoker {
     String urlPattern = "^((https|http|ftp|rtsp|mms)?:\\/\\/www.creei.cn[\\s\\S]*)";
     ImgProcessor imgspider=new ImgProcessor(url, urlPattern);
 
-    Spider spider =  Spider.create(imgspider)
+    Spider spider =  Spider.create(imgspider).setExitWhenComplete(true)
             .addUrl(url)
             .addPipeline(new ImgPipeline(fileStorePath))
             .thread(5);
     public void Invoke(){
 
         spider.run();
+
+
     }
     public void stop(){
 
         spider.stop();
+        /*System.out.println("线程池中海油"+spider.getThreadAlive());*/
+
     }
 
 }
