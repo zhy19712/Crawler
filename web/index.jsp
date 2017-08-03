@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/j-select.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 <body>
 <div id="header">
@@ -63,11 +64,27 @@
     <span class="next"></span>
 </div>
 <div id="table_wrapper">
-    <div id="table"></div>
+    <div class="container">
+        <table id="example" class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>TITLE</th>
+                <th>PATH</th>
+                <th>TYPE</th>
+                <th>CREATED_AT</th>
+                <th>OPTION</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
 </div>
 </body>
 <script src="http://localhost:8080/js/jquery.min.js"></script>
 <script src="/js/jquery-nicescroll.js"></script>
 <script src="/js/jquery-jSelect.min.js"></script>
 <script src="http://localhost:8080/js/index.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="/js/table.js"></script>
+
 </html>

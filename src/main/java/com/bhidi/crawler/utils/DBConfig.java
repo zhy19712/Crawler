@@ -1,8 +1,8 @@
 package com.bhidi.crawler.utils;
 
+import javax.servlet.ServletContext;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -13,29 +13,29 @@ public class DBConfig {
     public static final String name = "com.mysql.jdbc.Driver";
     public static final String user = "root";
     public static final String password = "admin";
+    public ServletContext application;
 
 
-    public Connection conn = null;
-    public PreparedStatement pst = null;
-
-    public DBConfig(String sql) {
+    public DBConfig(ServletContext application) {
+        this.application = application;
         try {
             Class.forName(name);//指定连接类型
-            conn = DriverManager.getConnection(url, user, password);//获取连接
-            pst = conn.prepareStatement(sql);//准备执行语句
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void close() {
+    public Connection getConn(){
         try {
-            this.conn.close();
-            this.pst.close();
+            return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
+
+
 }
+
 
 

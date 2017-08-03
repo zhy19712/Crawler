@@ -1,7 +1,10 @@
 package com.bhidi.crawler.utils;
 
+import javax.servlet.ServletContext;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by zhy19712 on 01/08/2017.
@@ -9,15 +12,20 @@ import java.sql.SQLException;
 public class DBTest {
 
     static String sql = null;
-    static DBConfig db1 = null;
     static ResultSet ret = null;
+    static Statement stmt = null;
+    public static ServletContext application;
+
+
 
     public static void main(String[] args) {
         sql = "select * from CONTENT";//SQL语句
-        db1 = new DBConfig(sql);//创建DBHelper对象
+        Connection conn = new DBConfig(application).getConn();
 
         try {
-            ret = db1.pst.executeQuery();//执行语句，得到结果集
+            stmt = conn.createStatement();
+
+            ret = stmt.executeQuery(sql);//执行语句，得到结果集
             while (ret.next()) {
                 String TITLE = ret.getString(3);
                 String PATH = ret.getString(4);
@@ -25,10 +33,11 @@ public class DBTest {
                 System.out.println(TITLE + "\t" + PATH + "\t" + TYPE);
             }//显示数据
             ret.close();
-            db1.close();//关闭连接
+            conn.close();//关闭连接
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 }
+
 
