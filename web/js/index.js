@@ -69,6 +69,7 @@ $(function() {
                 }
                 if(data.numChange=="true"){
                     $("#end").css("display","block");
+                    $(".third>i").css("display","none");
                     clearInterval(set1);
                 }
             }
@@ -103,6 +104,8 @@ $(function() {
             }
         })
     });
+
+    $("#myselect").jSelect();
 })
 
 

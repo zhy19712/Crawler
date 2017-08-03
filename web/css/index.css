@@ -63,17 +63,27 @@
 #content>div{
   margin-left: 150px;
 }
-#content input {
+#content .first input {
   width: 692px;
   outline: none;
   box-shadow: 1px 1px 1px #ccc;
 }
-#content span {
+#content .first span {
   display: inline-block;
   width: 80px;
+  margin-left: 36px;
 }
-#content .remake {
+#content .first .remake {
   margin-top: 20px;
+}
+#content .second>span{
+  display: inline-block;
+  width: 80px;
+  margin-left: 36px;
+}
+#content .second #myselect{
+  margin-left: 200px;
+  width: 670px;
 }
 #content .third {
   position: relative;

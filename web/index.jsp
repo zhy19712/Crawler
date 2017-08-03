@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/j-select.css">
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
@@ -33,8 +34,15 @@
         </div>
     </div>
     <div class="second">
-        <span>采集网址：</span>
-        <input type="text">
+        <span>选择网址：</span>
+        <select id="myselect">
+            <option value="www.baidu.com">www.baidu.com</option>
+            <option value="www.sina.com.cn">www.sina.com.cn</option>
+            <option value="www.tencent.com">www.tencent.com</option>
+            <option value="www.mi.com">www.mi.com</option>
+            <option value="www.huawei.com">www.huawei.com</option>
+            <option value="www.1688.com">www.1688.com</option>
+        </select>
     </div>
     <div class="third">
         <span id="start">开始采集</span>
@@ -59,6 +67,7 @@
 </div>
 </body>
 <script src="http://localhost:8080/js/jquery.min.js"></script>
-<script src="http://localhost:8080/js/zUI.js"></script>
+<script src="/js/jquery-nicescroll.js"></script>
+<script src="/js/jquery-jSelect.min.js"></script>
 <script src="http://localhost:8080/js/index.js"></script>
 </html>
