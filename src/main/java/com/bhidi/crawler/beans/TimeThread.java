@@ -20,7 +20,8 @@ public class TimeThread implements Runnable{
                 Thread.sleep(1000L);
                 i++;
                 System.out.println("i="+i);
-            } catch (InterruptedException inte) {
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
             if( i%60 == 0 ){
                 boo = true;

@@ -40,73 +40,69 @@ public class HelloController {
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
         add aaa = new add(1,2);
+
+
+        //设置爬出来的数量
         Show.setNum(0);
-        ImgDownloader.list1 = new ArrayList();
+        //清空爬出来的数据的集合
+        ImgDownloader.list1.clear();
+        //设置打印开关
+        ImgDownloader.bbb = true;
+
+        //创建一个新的爬虫
         CrawlerInvoker craw = new CrawlerInvoker();
+        //放入爬虫集合，
         list.add(craw);
 
-        ImgDownloader.bbb = true;
+
+
         //开启时间线程
         TimeThread.switchCode = true;
         TimeThread timeTh = new TimeThread();
         Thread timeThread =  new Thread(timeTh);
         timeThread.start();
 
+        //取出来爬虫集合的最后一个数据，启动
         CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
         craw2.Invoke();
 
-        model.addAttribute("return","nihao");
+        //返回值的设置
         String sign = "normal";
         sign = (String)session.getAttribute("sign");
-
-        Map<String,String> map = new HashMap<String, String>();
-        map.put("sign",sign);
-
-
-
-        String json = JSON.toJSONString(map);
+        Map<String,String> map1 = new HashMap<String, String>();
+        map1.put("sign",sign);
+        String json = JSON.toJSONString(map1);
         return json;
     }
     @ResponseBody
     @RequestMapping(value = "/data", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String printData(ModelMap model)  {
-
+        //取出来爬出来的数量
         String numStr = Integer.toString(Show.getNum());
+        //取出来爬出来的数据的后五位
         String jsonString = JSON.toJSONString(Show.getList());
-
         map.put("str",jsonString);
         map.put("number",numStr);
-
-
-
         String json = JSON.toJSONString(map);
-
-       /* char[] chars = new char[2];
-        response.setCharacterEncoding("UTF-8");
-        try{
-            response.getWriter().write(chars);
-        }catch(IOException e){
-            System.out.println("response报错！");
-        }
-        try {
-            response.getWriter().close();
-        }catch(IOException e){
-            System.out.println("response报错！");
-        }*/
-
         return json;
     }
     @ResponseBody
     @RequestMapping(value = "/stop", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String stopThread(ModelMap model, HttpSession session)  {
-        CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
-        session.setAttribute("sign","interrupt");
 
-        craw2.stop();
+        session.setAttribute("sign","interrupt");
+        //设置时间线程的开关
         TimeThread.switchCode = false;
-        ImgDownloader.list1 = null;
+        //清空爬出来的数据的集合
+        ImgDownloader.list1.clear();
+        //设置爬出来的数据的个数为0
+        Show.setNum(0);
+        //设置爬虫打印的开关
         ImgDownloader.bbb = false;
 
+        //取出来我们想要停掉的爬虫
+        CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
+        craw2.stop();
 
         return "json";
     }

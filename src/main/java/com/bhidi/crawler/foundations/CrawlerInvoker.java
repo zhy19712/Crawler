@@ -19,16 +19,9 @@ public class CrawlerInvoker {
             .addPipeline(new ImgPipeline(fileStorePath))
             .thread(5);
     public void Invoke(){
-
         spider.run();
-
-
     }
     public void stop(){
-
         spider.stop();
-        /*System.out.println("线程池中海油"+spider.getThreadAlive());*/
-
     }
-
 }

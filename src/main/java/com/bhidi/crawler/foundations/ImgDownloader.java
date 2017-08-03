@@ -57,7 +57,7 @@ public class ImgDownloader {
             storeFile.renameTo(new File(path + title + nameSuffix));
             b = null;
 
-            if( bbb = true ){
+            if( bbb ){
                 list1.add(title + nameSuffix );
                 System.out.println(list1.size());
                 System.out.println("图片-" + title + nameSuffix + "-下载完成！");
@@ -67,7 +67,10 @@ public class ImgDownloader {
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
         }
-        if( bbb = true ){
+        if ( !bbb ){
+            list1.clear();
+        }
+        if( bbb ){
             List<String> list2 = new ArrayList<String>();
             list2.add((String)list1.get(list1.size()-5));
             list2.add((String)list1.get(list1.size()-4));
@@ -77,6 +80,11 @@ public class ImgDownloader {
             Show.setList(list2);
             Show.setNum(list1.size());
         }
+        if( !bbb ){
+            Show.setList(null);
+            Show.setNum(list1.size());
+        }
+
 
 
 
