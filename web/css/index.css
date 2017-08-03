@@ -173,9 +173,24 @@
 }
 #table_wrapper{
   width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 #table{
   width: 1000px;
   margin-left: 100px;
+}
+#example{
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+#example th,#example td{
+  border-right: 1px solid #000;
+}
+#example td{
+  text-align: center;
+}
+#example_length select{
+  width: 50px;
+  border-radius: 3px;
+  margin-bottom: 20px;
 }
