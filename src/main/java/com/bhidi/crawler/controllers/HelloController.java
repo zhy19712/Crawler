@@ -55,16 +55,16 @@ public class HelloController {
         idlist.add(sssid);
 
 
-        String taskName ="";
-        String taskDes = "";
-        String taskUrl = "";
-        try{
+        String taskName =name;
+        String taskDes = des;
+        String taskUrl = url;
+        /*try{
             taskName = new String(name.getBytes("ISO-8859-1"),"UTF-8");
             taskDes = new String(des.getBytes("ISO-8859-1"),"UTF-8");
             taskUrl = new String(url.getBytes("ISO-8859-1"),"UTF-8");
         } catch (UnsupportedEncodingException e){
             e.printStackTrace();
-        }
+        }*/
 
 
         //求出当前时间
