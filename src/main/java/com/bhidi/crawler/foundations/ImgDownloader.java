@@ -1,6 +1,7 @@
 package com.bhidi.crawler.foundations;
 
 import com.bhidi.crawler.beans.Show;
+import com.bhidi.crawler.utils.DBUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
@@ -60,6 +61,7 @@ public class ImgDownloader {
                 list1.add(title + ":" + filename[filename.length - 1] + "--下载完成!");
                 System.out.println(list1.size());
                 System.out.println("图片-" + title + nameSuffix + "--下载完成!");
+                DBUtils.Insert("insert into CONTENT (ID_TASK,TITLE,PATH,TYPE,CREATED_AT) values('2','"+title+"','"+path+"','"+nameSuffix+"','time')");
             }
 
         } else {
