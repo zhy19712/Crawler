@@ -79,6 +79,7 @@ $(function() {
 	$("#start").click(function () {
         $("#stop").css("display","block");
         $(".third>i").css("display","block");
+        $("#container").empty();
 		$.ajax({
 			url: "/start",
 			type:"get",
