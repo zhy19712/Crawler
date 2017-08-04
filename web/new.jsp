@@ -68,11 +68,11 @@
         <table id="example" class="table table-striped table-bordered">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>TITLE</th>
                 <th>PATH</th>
                 <th>TYPE</th>
                 <th>CREATED_AT</th>
-                <th>OPTION</th>
             </tr>
             </thead>
         </table>
@@ -85,6 +85,6 @@
 <script src="/js/jquery-jSelect.min.js"></script>
 <script src="http://localhost:8080/js/new.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script src="/js/table.js"></script>
+<script src="/js/table_content.js"></script>
 
 </html>

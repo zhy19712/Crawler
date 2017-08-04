@@ -8,18 +8,24 @@ public class Content {
     public String PATH;
     public String TYPE;
     public String CREATED_AT;
+    public int ID;
 
 
-    public Content(String TITLE, String PATH, String TYPE, String CREATED_AT) {
+    public Content(int ID, String TITLE, String PATH, String TYPE, String CREATED_AT) {
         this.TITLE = TITLE;
         this.PATH = PATH;
         this.TYPE = TYPE;
         this.CREATED_AT = CREATED_AT;
+        this.ID = ID;
     }
 
     public String getTITLE() {
 
         return TITLE;
+    }
+    public int getID() {
+
+        return ID;
     }
 
 
