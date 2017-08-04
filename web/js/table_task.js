@@ -1,17 +1,17 @@
 var table;
 $(function () {
 
-    table = $('#example').DataTable({
+    table = $('#task').DataTable({
         ajax: {
-            url: "/list.jsp"
+            url: "/list_task.jsp"
         },
-        "order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
+        "order": [[1, 'asc']],
         "serverSide": true,
         "columns": [
             {"data": "ID"},
-            {"data": "TITLE"},
-            {"data": "PATH"},
-            {"data": "TYPE"},
+            {"data": "NAME"},
+            {"data": "DESCRIPTION"},
+            {"data": "URL"},
             {"data": "CREATED_AT"}
 
         ],

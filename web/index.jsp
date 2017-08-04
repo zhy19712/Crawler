@@ -6,6 +6,10 @@
 	<title>爬虫采集</title>
 	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+	<script src="/js/jquery.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script src="/js/table_task.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -40,7 +44,18 @@
 	</div>
 	<div id="content">
 		<a href="new.jsp" target="_blank">新建任务</a>
-		<div id="container">
+		<div class="container">
+			<table id="task" class="table table-striped table-bordered">
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>DESCRIPTION</th>
+					<th>URL</th>
+					<th>CREATED_AT</th>
+				</tr>
+				</thead>
+			</table>
 		</div>
 	</div>
 </body>
