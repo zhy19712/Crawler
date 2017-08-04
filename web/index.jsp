@@ -10,6 +10,7 @@
 	<script src="/js/jquery.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	<script src="/js/table_task.js"></script>
+	<script src="/js/index.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -53,10 +54,25 @@
 					<th>DESCRIPTION</th>
 					<th>URL</th>
 					<th>CREATED_AT</th>
+					<th></th>
 				</tr>
 				</thead>
 			</table>
 		</div>
+		<div id="detail-wrapper">
+			<div id="detail">
+				<p>任务名称：<span>爬虫1</span></p>
+				<p>任务描述：<span>我的第一个爬虫</span></p>
+				<p>抓取网址：<span>www.baidu.com</span></p>
+				<div id="table_wrapper"></div>
+				<div class="close">×</div>
+			</div>
+		</div>
 	</div>
 </body>
+<script>
+	$(".close").click(function () {
+		$("#detail-wrapper").fadeOut();
+    })
+</script>
 </html>

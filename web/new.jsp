@@ -64,7 +64,7 @@
     <span class="next"></span>
 </div>
 <div id="table_wrapper">
-    <div class="container">
+    <div class="container"
         <table id="example" class="table table-striped table-bordered">
             <thead>
             <tr>

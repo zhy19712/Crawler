@@ -183,6 +183,19 @@
   border-top: 1px solid #000;
   border-left: 1px solid #000;
 }
+#example thead{
+  background-color: #4b82ba;
+}
+table.dataTable tbody .even{
+  background-color: #b8cdea;
+}
+#example tr{
+  border-collapse:collapse;
+  border-bottom: 1px solid #000000;
+}
+#example tr:hover{
+  background-color: #4b82ba;
+}
 #example th,#example td{
   border-right: 1px solid #000;
 }

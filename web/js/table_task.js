@@ -12,14 +12,18 @@ $(function () {
             {"data": "NAME"},
             {"data": "DESCRIPTION"},
             {"data": "URL"},
-            {"data": "CREATED_AT"}
+            {"data": "CREATED_AT"},
+            {"data": null}
 
         ],
         "columnDefs": [
             {
                 "searchable": false,
                 "orderable": false,
-                "targets": [0.-1]
+                "targets": [0.-1],
+                "render" : function (data) {
+                    return "<div class='detail' onclick='detail()'><img src='/image/detail.png' alt=''><span>详情</span></div><div class='delete'><img src='/image/delete.png' alt=''><span>删除</span></div>"
+                }
             }
         ],
 

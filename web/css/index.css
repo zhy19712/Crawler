@@ -67,6 +67,7 @@
 #content > a {
   display: block;
   margin-left: 50px;
+  margin-bottom: 20px;
   width: 100px;
   height: 30px;
   border-radius: 3px;
@@ -79,4 +80,80 @@
 }
 #container{
   width: 100%;
+}
+#task{
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+#task thead{
+  background-color: #4b82ba;
+}
+table.dataTable tbody .even{
+  background-color: #b8cdea;
+}
+#task tr{
+  border-collapse:collapse;
+  border-bottom: 1px solid #000000;
+}
+#task tr:hover{
+  background-color: #4b82ba;
+}
+#task th,#task td{
+  border-right: 1px solid #000;
+}
+#task td{
+  text-align: center;
+}
+#task_length select{
+  width: 50px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+#task tbody tr td:last-child{
+  padding: 3px;
+}
+#task tbody img,#task tbody .detail,#task tbody .delete{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  cursor: pointer;
+}
+#task tbody .delete{
+  margin-left: 10px;
+}
+
+#detail-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: none;
+}
+#detail{
+  position: absolute;
+  width: 1200px;
+  top: 50px;
+  left: 50%;
+  bottom: 50px;
+  margin-left: -600px;
+  background-color: #fff;
+}
+#detail p{
+  text-indent: 200px;
+  font-size: 14px;
+  line-height: 24px;
+}
+#detail p:first-child{
+  margin-top: 50px;
+}
+#detail .close{
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #000;
+  font-size: 30px;
+  z-index: 999;
+  cursor: pointer;
 }

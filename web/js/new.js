@@ -112,6 +112,13 @@ $(function() {
     });
 
     $("#myselect").jSelect();
+
+    $("#example>tbody>.odd").click(function () {
+        alert(123)
+        // $("#example .even").css("background-color","#b8cdea");
+        // $("#example .odd").css("background-color","#fff");
+        // $(this).css("background-color","#ccc");
+    })
 })
 
 
