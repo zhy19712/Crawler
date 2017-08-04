@@ -68,11 +68,11 @@
         <table id="example" class="table table-striped table-bordered">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>TITLE</th>
                 <th>PATH</th>
                 <th>TYPE</th>
                 <th>CREATED_AT</th>
-                <th>OPTION</th>
             </tr>
             </thead>
         </table>

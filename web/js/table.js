@@ -8,11 +8,12 @@ $(function () {
         "order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
         "serverSide": true,
         "columns": [
+            {"data": "ID"},
             {"data": "TITLE"},
             {"data": "PATH"},
             {"data": "TYPE"},
-            {"data": "CREATED_AT"},
-            {"data": null}
+            {"data": "CREATED_AT"}
+
         ],
         "columnDefs": [
             {

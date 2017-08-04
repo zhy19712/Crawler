@@ -39,7 +39,7 @@
     String recordsFiltered = "";
 
     //定义列名
-    String[] cols = {"TITLE", "PATH", "TYPE", "CREATED_AT"};
+    String[] cols = {"ID", "TITLE", "PATH", "TYPE", "CREATED_AT"};
     //获取客户端需要那一列排序
     String orderColumn = "0";
     orderColumn = request.getParameter("order[0][column]");
@@ -66,6 +66,7 @@
 
     List<String> sArray = new ArrayList<String>();
     if (!searchValue.equals("")) {
+        sArray.add(" ID like '%" + searchValue + "%'");
         sArray.add(" TITLE like '%" + searchValue + "%'");
         sArray.add(" PATH like '%" + searchValue + "%'");
         sArray.add(" TYPE like '%" + searchValue + "%'");
@@ -108,7 +109,8 @@
 
         rs = stmt.executeQuery(sql);
         while (rs.next()) {
-            contents.add(new Content(rs.getString("TITLE"),
+            contents.add(new Content(rs.getInt("ID"),
+                    rs.getString("TITLE"),
                     rs.getString("PATH"),
                     rs.getString("TYPE"),
                     rs.getString("CREATED_AT")));
