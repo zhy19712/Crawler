@@ -85,11 +85,6 @@ public class ImgDownloader {
             Show.setNum(list1.size());
         }
 
-
-
-
-
-
         response = null;
         getMethod.releaseConnection();
     }

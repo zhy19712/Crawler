@@ -54,7 +54,11 @@ public class HelloController {
         //放入爬虫集合，
         list.add(craw);
 
+        try{
+            Thread.sleep(1000);
+        }catch(Exception e){
 
+        }
 
         //开启时间线程
         TimeThread.switchCode = true;
@@ -89,6 +93,9 @@ public class HelloController {
     @ResponseBody
     @RequestMapping(value = "/stop", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     public String stopThread(ModelMap model, HttpSession session)  {
+        //取出来我们想要停掉的爬虫
+        CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
+        craw2.stop();
 
         session.setAttribute("sign","interrupt");
         //设置时间线程的开关
@@ -100,9 +107,7 @@ public class HelloController {
         //设置爬虫打印的开关
         ImgDownloader.bbb = false;
 
-        //取出来我们想要停掉的爬虫
-        CrawlerInvoker craw2 = (CrawlerInvoker)list.get(list.size() - 1);
-        craw2.stop();
+
 
         return "json";
     }
