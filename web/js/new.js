@@ -1,11 +1,14 @@
 $(function() {
+    var name,des,url;
     var x = 1;
     $(".next").click(function () {
         x += 1;
 
         if (x === 2) {
-            var name = $(".name>input").val();
-            if (name) {
+            name = $(".name input").val();
+            des = $(".remake input").val();
+            var val = $(".name>input").val();
+            if (val) {
                 $("#content>div").css("display", "none");
                 $(".pre").css("visibility", "visible");
                 $(".second").css("display", "block");
@@ -39,7 +42,7 @@ $(function() {
         }
     });
 
-
+    var url = $("#myselect").val();
     var num = 0;
     var set1;
     function ajax1(num){
@@ -77,11 +80,13 @@ $(function() {
 	};
 
 	$("#start").click(function () {
+	    console.log(name,des,url);
         $("#stop").css("display","block");
         $(".third>i").css("display","block");
         $("#container").empty();
 		$.ajax({
 			url: "/start",
+            data: {name:name,des:des,url:url},
 			type:"get",
             success: function(data){
 				if(data.sign=="interrupt"){
