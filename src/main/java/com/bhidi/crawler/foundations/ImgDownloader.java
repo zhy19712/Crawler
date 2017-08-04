@@ -1,6 +1,7 @@
 package com.bhidi.crawler.foundations;
 
 import com.bhidi.crawler.beans.Show;
+import com.bhidi.crawler.controllers.HelloController;
 import com.bhidi.crawler.utils.DBUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -8,11 +9,14 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,6 +35,9 @@ public class ImgDownloader {
         HttpResponse response = httpClient.execute(getMethod);
         //logger.info(response.getStatusLine());
         int statusCode = response.getStatusLine().getStatusCode();
+
+        int sid = HelloController.idlist.get( HelloController.idlist.size()-1);
+        System.out.print(sid);
 
         if (statusCode == HttpStatus.SC_OK) {
 
@@ -56,12 +63,16 @@ public class ImgDownloader {
 
             storeFile.renameTo(new File(path + title + nameSuffix));
             b = null;
+            //求出当前时间
+            Date nowDate = new Date();
+            SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String time = simple.format(nowDate);
 
             if (bbb) {
                 list1.add(title + ":" + filename[filename.length - 1] + "--下载完成!");
                 System.out.println(list1.size());
                 System.out.println("图片-" + title + nameSuffix + "--下载完成!");
-                DBUtils.Insert("insert into CONTENT (ID_TASK,TITLE,PATH,TYPE,CREATED_AT) values('2','"+title+"','"+path+"','"+nameSuffix+"','time')");
+                DBUtils.Insert("insert into CONTENT (ID_TASK,TITLE,PATH,TYPE,CREATED_AT) values('"+sid+"','"+title+"','"+path+"','"+nameSuffix+"','"+time+"')");
             }
 
         } else {
