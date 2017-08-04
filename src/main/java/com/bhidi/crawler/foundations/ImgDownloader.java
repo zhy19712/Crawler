@@ -22,6 +22,7 @@ public class ImgDownloader {
     public static boolean bbb = true;
 
     public void download(String url, String title, String path) throws IOException {
+
         String[] filename;
 
         HttpClient httpClient = HttpClients.createDefault();
@@ -34,53 +35,52 @@ public class ImgDownloader {
 
             filename = url.split("/"); // 取图片链接的最后一段为文件名
 
-            String nameSuffix=url.substring(url.lastIndexOf(".")); //获取扩展名
+            String nameSuffix = url.substring(url.lastIndexOf(".")); //获取扩展名
 
-            File storeFile = new File(path + filename[filename.length-1]
+            File storeFile = new File(path + filename[filename.length - 1]
                     + ".tmp"); // 先存为临时文件，等全部下完再改回原来的文件名
 
             FileOutputStream outputStream = new FileOutputStream(storeFile);
             InputStream inputStream = response.getEntity().getContent();
-            byte b[] = new byte[32*1024];
+            byte b[] = new byte[32 * 1024];
             int j = 0;
 
-            while( (j = inputStream.read(b)) != -1 )
-            {
-                outputStream.write(b,0,j);
+            while ((j = inputStream.read(b)) != -1) {
+                outputStream.write(b, 0, j);
             }
 
-            if (outputStream != null)
-            {
+            if (outputStream != null) {
                 outputStream.close();
             }
 
             storeFile.renameTo(new File(path + title + nameSuffix));
             b = null;
 
-            if( bbb ){
-                list1.add(title + nameSuffix );
+            if (bbb) {
+                list1.add(title + ":" + filename[filename.length - 1] + "--下载完成!");
                 System.out.println(list1.size());
-                System.out.println("图片-" + title + nameSuffix + "-下载完成！");
+                System.out.println("图片-" + title + nameSuffix + "--下载完成!");
             }
 
         } else {
+            list1.add(title + ":" + path + "--链接已失效！");
             System.out.println("Something wrong and the code is " + statusCode);
             System.out.println("And the wrong page is " + url);
         }
-        if ( !bbb ){
+        if (!bbb) {
             list1.clear();
         }
-        if( bbb ){
+        if (bbb) {
             List<String> list2 = new ArrayList<String>();
-            list2.add((String)list1.get(list1.size()-5));
-            list2.add((String)list1.get(list1.size()-4));
-            list2.add((String)list1.get(list1.size()-3));
-            list2.add((String)list1.get(list1.size()-2));
-            list2.add((String)list1.get(list1.size()-1));
+            list2.add((String) list1.get(list1.size() - 5));
+            list2.add((String) list1.get(list1.size() - 4));
+            list2.add((String) list1.get(list1.size() - 3));
+            list2.add((String) list1.get(list1.size() - 2));
+            list2.add((String) list1.get(list1.size() - 1));
             Show.setList(list2);
             Show.setNum(list1.size());
         }
-        if( !bbb ){
+        if (!bbb) {
             Show.setList(null);
             Show.setNum(list1.size());
         }
