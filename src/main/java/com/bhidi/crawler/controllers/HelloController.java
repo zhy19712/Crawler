@@ -5,6 +5,7 @@ import com.bhidi.crawler.beans.Show;
 import com.bhidi.crawler.beans.TimeThread;
 import com.bhidi.crawler.foundations.CrawlerInvoker;
 import com.bhidi.crawler.foundations.ImgDownloader;
+import com.bhidi.crawler.utils.DBUtils;
 import com.bhidi.crawler.utils.add;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -31,15 +35,49 @@ public class HelloController {
     public static List<Integer> listNum = new ArrayList<Integer>();
     private static int i =0;
     public static Map<String,String> map = new HashMap<String, String>();
+    public static List<Integer> idlist  = new ArrayList<Integer>();
 
     private CrawlerInvoker craw;
 
     @ResponseBody
     @RequestMapping(value = "/start", method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public String printHello(@RequestParam(value = "name",required = false) String name, ModelMap model,HttpSession session)  {
-        model.addAttribute("msg", "Spring MVC Hello World");
+    public String printHello(@RequestParam(value = "name",required = false) String name,
+                             @RequestParam(value = "des",required = false) String des,
+                             @RequestParam(value = "url",required = false) String url,
+                             ModelMap model,HttpSession session) {
+/*        model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "gg!");
-        add aaa = new add(1,2);
+        add aaa = new add(1,2);*/
+        Long longid = System.currentTimeMillis();
+        String sid = longid.toString();
+        String ssid = sid.substring(1,10);
+        int sssid = Integer.parseInt(ssid);
+        idlist.add(sssid);
+
+
+        String taskName ="";
+        String taskDes = "";
+        String taskUrl = "";
+        try{
+            taskName = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+            taskDes = new String(des.getBytes("ISO-8859-1"),"UTF-8");
+            taskUrl = new String(url.getBytes("ISO-8859-1"),"UTF-8");
+        } catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+
+
+        //求出当前时间
+        Date nowDate = new Date();
+        SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = simple.format(nowDate);
+        try{
+            DBUtils.Insert("insert into TASK (NAME,DESCRIPTION,URL,CREATED_AT,UID) values ('"+taskName+"','"+taskDes+"','"+taskUrl+"','"+time+"','"+sssid+"')");
+        }catch ( Exception e ){
+            e.printStackTrace();
+        }
+
+
 
 
         //设置爬出来的数量
@@ -59,6 +97,7 @@ public class HelloController {
         }catch(Exception e){
 
         }
+
 
         //开启时间线程
         TimeThread.switchCode = true;

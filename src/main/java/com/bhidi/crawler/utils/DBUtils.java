@@ -25,5 +25,31 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+    public static int Query(String sql){
+        Statement stmt = null;
+        ServletContext application = null;
+        Connection conn = new DBConfig(application).getConn();
+        ResultSet set = null;
+        try {
+            stmt = conn.createStatement();
+            set = stmt.executeQuery(sql);
+
+            conn.close();//关闭连接
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int i = 0;
+
+        try{
+            i = set.getInt("id");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        if(set ==null){
+            return 0;
+        }else {
+            return i;
+        }
+    }
 }
 

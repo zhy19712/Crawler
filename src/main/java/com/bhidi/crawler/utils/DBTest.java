@@ -19,8 +19,10 @@ public class DBTest {
 
 
     public static void main(String[] args) {
-        sql = "select * from CONTENT";//SQL语句
+        sql = "select * from task";//SQL语句
         Connection conn = new DBConfig(application).getConn();
+        Long longid = System.currentTimeMillis();
+        System.out.println(longid);
 
         try {
             stmt = conn.createStatement();
