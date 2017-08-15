@@ -81,44 +81,44 @@
 #container{
   width: 100%;
 }
-#task{
+#task,#example{
   border-top: 1px solid #000;
   border-left: 1px solid #000;
 }
-#task thead{
+#task thead,#example thead{
   background-color: #4b82ba;
 }
 table.dataTable tbody .even{
   background-color: #b8cdea;
 }
-#task tr{
+#task tr,#example tr{
   border-collapse:collapse;
   border-bottom: 1px solid #000000;
 }
-#task tr:hover{
+#task tr:hover,#example tr:hover{
   background-color: #4b82ba;
 }
-#task th,#task td{
+#task th,#task td,#example th,#example td{
   border-right: 1px solid #000;
 }
-#task td{
+#task td,#example td{
   text-align: center;
 }
-#task_length select{
+#task_length select,#example_length select{
   width: 50px;
   border-radius: 3px;
   margin-bottom: 20px;
 }
-#task tbody tr td:last-child{
+#task tbody tr td:last-child,#example tbody tr td:last-child{
   padding: 3px;
 }
-#task tbody img,#task tbody .detail,#task tbody .delete{
+#task tbody img,#task tbody .detail,#task tbody .delete,#example tbody img,#example tbody .detail,#example tbody .delete{
   display: inline-block;
   vertical-align: middle;
   font-size: 12px;
   cursor: pointer;
 }
-#task tbody .delete{
+#task tbody .delete,#example tbody .delete{
   margin-left: 10px;
 }
 
@@ -156,4 +156,8 @@ table.dataTable tbody .even{
   font-size: 30px;
   z-index: 999;
   cursor: pointer;
+}
+#table_wrapper{
+  width: 1100px;
+  margin: 0 auto;
 }
