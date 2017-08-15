@@ -72,6 +72,7 @@
         sArray.add(" CREATED_AT like '%" + searchValue + "%'");
     }
 
+
     String individualSearch = "";
     if (sArray.size() == 1) {
         individualSearch = sArray.get(0);
