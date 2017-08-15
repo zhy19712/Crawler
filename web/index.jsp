@@ -87,7 +87,7 @@
 	 	var mytable = $('#example').DataTable({
 
         ajax: {
-            url: "/list_detail.jsp?createTime="+"null"
+            url: "/list_detail.jsp?taskName="+"null"
         },
         "order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
         "serverSide": true,
@@ -143,7 +143,7 @@
         });
     }).draw();
 
-        var createTime = "";
+        var taskName = "";
         function detail(that) {
             $("#detail-wrapper").fadeIn();
             var name = $(that).parents("tr").children("td:nth-child(2)").text();
@@ -153,9 +153,9 @@
             $("#detail").children("p:first-child").children("span").text(name);
             $("#detail").children("p:nth-child(2)").children("span").text(desc);
             $("#detail").children("p:nth-child(3)").children("span").text(url);
-            createTime = time;
+            taskName = name;
 
-            mytable.ajax.url("/list_detail.jsp?createTime="+createTime).load();
+            mytable.ajax.url("/list_detail.jsp?taskName="+taskName).load();
         }
 </script>
 </html>
