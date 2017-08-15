@@ -154,7 +154,6 @@
             $("#detail").children("p:nth-child(2)").children("span").text(desc);
             $("#detail").children("p:nth-child(3)").children("span").text(url);
             createTime = time;
-            console.log(createTime);
 
             mytable.ajax.url("/list_detail.jsp?createTime="+createTime).load();
         }
