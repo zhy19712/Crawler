@@ -28,6 +28,15 @@
     //获取参数
     String createTime = "";
     createTime = request.getParameter("createTime");
+    if( "null".equals(createTime) ){
+        Map<Object, Object> info = new HashMap<Object, Object>();
+        info.put("data", null);
+        info.put("recordsTotal", 0);
+        info.put("recordsFiltered", "");
+        info.put("draw", "0");
+        String json = new Gson().toJson(info);
+        out.write(json);
+    }else{
     System.out.println(createTime);
     //获取请求次数
     String draw = "0";
@@ -154,6 +163,6 @@
     rs.close();
     stmt.close();
     conn.close();
-    out.write(json);
+    out.write(json);}
 %>
 
