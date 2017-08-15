@@ -4,15 +4,17 @@ function detail(that) {
         var name = $(that).parents("tr").children("td:nth-child(2)").text();
         var desc = $(that).parents("tr").children("td:nth-child(3)").text();
         var url = $(that).parents("tr").children("td:nth-child(4)").text();
-        var time = $(that).parents("tr").children("td:nth-child(5)").text();
+        var createTime = $(that).parents("tr").children("td:nth-child(5)").text();
         $("#detail").children("p:first-child").children("span").text(name);
         $("#detail").children("p:nth-child(2)").children("span").text(desc);
         $("#detail").children("p:nth-child(3)").children("span").text(url);
-
+        $('#example').empty();
+        alert("/list_detail.jsp?createTime="+createTime);
         var table = $('#example').DataTable({
+
             ajax: {
-                url: "/list_content.jsp",
-                data: time
+                url: "/list_detail.jsp?createTime="+createTime,
+                data: createTime
             },
             "order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
             "serverSide": true,
