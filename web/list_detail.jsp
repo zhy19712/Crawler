@@ -26,9 +26,9 @@
     String tableTask = "TASK";
 
     //获取参数
-    String createTime = "";
-    createTime = request.getParameter("createTime");
-    if( "null".equals(createTime) ){
+    String taskName = "";
+    taskName = request.getParameter("taskName");
+    if( "null".equals(taskName) ){
         Map<Object, Object> info = new HashMap<Object, Object>();
         info.put("data", null);
         info.put("recordsTotal", 0);
@@ -37,7 +37,7 @@
         String json = new Gson().toJson(info);
         out.write(json);
     }else{
-    System.out.println(createTime);
+    System.out.println(taskName);
     //获取请求次数
     String draw = "0";
     draw = request.getParameter("draw");
@@ -99,7 +99,7 @@
 
     List<Content> contents = new ArrayList<Content>();
     if (conn != null) {
-        String queryUIDByTime = "select uid from " + tableTask + " where created_at = "+"'"+createTime+"'";
+        String queryUIDByTime = "select uid from " + tableTask + " where name = "+"'"+taskName+"'";
         stmt = conn.createStatement();
         ResultSet uids = stmt.executeQuery(queryUIDByTime);
         String uid = "";
