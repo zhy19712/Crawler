@@ -22,7 +22,7 @@ $(function () {
                 "orderable": false,
                 "targets": [0.-1],
                 "render" : function (data) {
-                    return "<div class='detail' onclick='detail()'><img src='/image/detail.png' alt=''><span>详情</span></div><div class='delete'><img src='/image/delete.png' alt=''><span>删除</span></div>"
+                    return "<div class='detail' onclick='detail(this)'><img src='/image/detail.png' alt=''><span>详情</span></div><div class='delete'><img src='/image/delete.png' alt=''><span>删除</span></div>"
                 }
             }
         ],
