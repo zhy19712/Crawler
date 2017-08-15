@@ -34,7 +34,6 @@ public class TimeThread implements Runnable{
                     TimeThread.switchCode = false;
                 }
             }
-
         }
     }
 }

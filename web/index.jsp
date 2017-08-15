@@ -61,10 +61,22 @@
 		</div>
 		<div id="detail-wrapper">
 			<div id="detail">
-				<p>任务名称：<span>爬虫1</span></p>
-				<p>任务描述：<span>我的第一个爬虫</span></p>
-				<p>抓取网址：<span>www.baidu.com</span></p>
-				<div id="table_wrapper"></div>
+				<p>任务名称：<span></span></p>
+				<p>任务描述：<span></span></p>
+				<p>抓取网址：<span></span></p>
+				<div id="table_wrapper">
+					<table id="example" class="table table-striped table-bordered">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>TITLE</th>
+							<th>PATH</th>
+							<th>TYPE</th>
+							<th>CREATED_AT</th>
+						</tr>
+						</thead>
+					</table>
+				</div>
 				<div class="close">×</div>
 			</div>
 		</div>

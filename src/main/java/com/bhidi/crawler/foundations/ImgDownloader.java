@@ -37,7 +37,7 @@ public class ImgDownloader {
         int statusCode = response.getStatusLine().getStatusCode();
 
         int sid = HelloController.idlist.get( HelloController.idlist.size()-1);
-        System.out.print(sid);
+        System.out.print("当前执行的任务的id:"+sid);
 
         if (statusCode == HttpStatus.SC_OK) {
 
