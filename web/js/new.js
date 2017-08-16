@@ -74,6 +74,8 @@ $(function() {
                     $("#end").css("display","block");
                     $(".third>i").css("display","none");
                     clearInterval(set1);
+                    mytable.ajax.url("/list_detail.jsp?taskName="+name).load();
+                    $("#example_wrapper").css("visibility","visible");
                 }
             }
         })
@@ -108,17 +110,15 @@ $(function() {
             success: function () {
                 console.log("123");
             }
-        })
+        });
+        mytable.ajax.url("/list_detail.jsp?taskName="+name).load();
+
+        $("#example_wrapper").css("visibility","visible");
     });
 
     $("#myselect").jSelect();
 
-    $("#example>tbody>.odd").click(function () {
-        alert(123)
-        // $("#example .even").css("background-color","#b8cdea");
-        // $("#example .odd").css("background-color","#fff");
-        // $(this).css("background-color","#ccc");
-    })
+
 })
 
 

@@ -179,6 +179,9 @@
   width: 1000px;
   margin-left: 100px;
 }
+#example_wrapper{
+  visibility: hidden;
+}
 #example{
   border-top: 1px solid #000;
   border-left: 1px solid #000;

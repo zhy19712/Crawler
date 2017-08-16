@@ -86,39 +86,39 @@
 
 	 	var mytable = $('#example').DataTable({
 
-        ajax: {
-            url: "/list_detail.jsp?taskName="+"null"
-        },
-        "order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
-        "serverSide": true,
-        "columns": [
-            {"data": "ID"},
-            {"data": "TITLE"},
-            {"data": "PATH"},
-            {"data": "TYPE"},
-            {"data": "CREATED_AT"}
+			ajax: {
+				url: "/list_detail.jsp?taskName="+"null"
+			},
+			"order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
+			"serverSide": true,
+			"columns": [
+				{"data": "ID"},
+				{"data": "TITLE"},
+				{"data": "PATH"},
+				{"data": "TYPE"},
+				{"data": "CREATED_AT"}
 
-        ],
-        "columnDefs": [
-            {
-                "searchable": false,
-                "orderable": false,
-                "targets": [0.-1]
-            }
-        ],
+			],
+			"columnDefs": [
+				{
+					"searchable": false,
+					"orderable": false,
+					"targets": [0.-1]
+				}
+			],
 
-        "language": {
-            "lengthMenu": "每页_MENU_ 条记录",
-            "zeroRecords": "没有找到记录",
-            "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
-            "infoEmpty": "无记录",
-            "search": "搜索：",
-            "infoFiltered": "(从 _MAX_ 条记录过滤)",
-            "paginate": {
-                "previous": "上一页",
-                "next": "下一页"
-            }
-        }
+			"language": {
+				"lengthMenu": "每页_MENU_ 条记录",
+				"zeroRecords": "没有找到记录",
+				"info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+				"infoEmpty": "无记录",
+				"search": "搜索：",
+				"infoFiltered": "(从 _MAX_ 条记录过滤)",
+				"paginate": {
+					"previous": "上一页",
+					"next": "下一页"
+				}
+			}
 
     });
 
