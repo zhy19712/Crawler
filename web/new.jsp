@@ -77,7 +77,6 @@
             </thead>
         </table>
     </div>
-
 </div>
 </body>
 <script src="http://localhost:8080/js/jquery.min.js"></script>
@@ -85,12 +84,11 @@
 <script src="/js/jquery-jSelect.min.js"></script>
 <script src="http://localhost:8080/js/new.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script src="/js/table_content.js"></script>
 <script>
     var mytable = $('#example').DataTable({
 
         ajax: {
-            url: "/list_detail.jsp?taskName=null"
+            url: "/list_detail.jsp?taskName="+"null"
         },
         "order": [[1, 'asc']],// dt默认是第一列升序排列 这里第一列为序号列，所以设置为不排序，并把默认的排序列设置到后面
         "serverSide": true,

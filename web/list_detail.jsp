@@ -80,7 +80,6 @@
 
     List<String> sArray = new ArrayList<String>();
     if (!searchValue.equals("")) {
-        sArray.add(" ID like '%" + searchValue + "%'");
         sArray.add(" TITLE like '%" + searchValue + "%'");
         sArray.add(" PATH like '%" + searchValue + "%'");
         sArray.add(" TYPE like '%" + searchValue + "%'");
@@ -112,10 +111,10 @@
 
 
 
-        String recordsFilteredSql = "select count(1) as recordsFiltered from " + table;
+        String recordsFilteredSql = "select count(1) as recordsFiltered from " + table+" where " + "id_task="+uid;
 
         //获取数据库总记录数
-        String recordsTotalSql = "select count(1) as recordsTotal from " + table;
+        String recordsTotalSql = "select count(1) as recordsTotal from " + table+" where " + "id_task="+uid;
         rs = stmt.executeQuery(recordsTotalSql);
         while (rs.next()) {
             recordsTotal = rs.getString("recordsTotal");
@@ -125,7 +124,7 @@
         String searchSQL = "";
         String sql = "SELECT * FROM " + table+" where " + "id_task="+uid;
         if (individualSearch != "") {
-            searchSQL = " where " + individualSearch;
+            searchSQL = " and " + "("+individualSearch+")";
         }
         sql += searchSQL;
         recordsFilteredSql += searchSQL;
